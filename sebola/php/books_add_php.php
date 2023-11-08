@@ -11,7 +11,7 @@ $isbn           = $_POST["txtIsbn"];
 $thumb          = $_POST["txtThumb"];
 
 
-$sql = "INSERT INTO livros (titulo, autor, data_publicacao, descricao, isbn, categoria, thumbnail)
+$sql = "INSERT INTO livros (titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail)
         VALUES ('$title', '$author', '$pubDate', '$description', '$category', '$isbn', '$thumb', )";
 
 $result = $conn->query($sql);

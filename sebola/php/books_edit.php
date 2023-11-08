@@ -10,7 +10,7 @@
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
 
-            $sql = "SELECT id, titulo, autor, data_publicacao, descricao, isbn, categoria, thumbnail FROM livro WHERE id = $id";
+            $sql = "SELECT id, titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail FROM livro WHERE id = $id";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -19,6 +19,7 @@
                     $pubDate        = $row["data_publicacao"];
                     $description    = $row["descricao"];
                     $category       = $row["categoria"];
+                    $price          = $row["preco"];
                     $isbn           = $row["isbn"];
                     $thumb          = $row["thumbnail"];
                 }
@@ -42,6 +43,9 @@
 
         <b>Categoria:</b>
         <input type="text" name="txtCategory" value="<?php echo $category?>" required> <br>
+
+        <b>Preço:</b>
+        <input type="text" name="txtPrice" value="<?php echo $price?>" required> <br>
 
         <b>ISBN:</b>
         <input type="text" name="txtIsbn" value="<?php echo $isbn?>"> <br>

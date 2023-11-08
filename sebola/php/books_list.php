@@ -22,7 +22,7 @@
         <?php
             include("connection.php");
 
-            $sql = "SELECT id, titulo, autor, data_publicacao, descricao, isbn, categoria, thumbnail FROM livro";
+            $sql = "SELECT id, titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail FROM livro";
             $result = $conn->query($sql);
         ?>
 
@@ -38,8 +38,9 @@
                 <th>Autor</th>
                 <th>Data Publicação</th>
                 <th>Descricao</th>
-                <th>ISBN</th>
                 <th>Categoria</th>
+                <th>Preco</th>
+                <th>ISBN</th>
                 <th>Capa <\link></th>
                 <th colspan=2>Ações</th>
             </tr>
@@ -61,8 +62,9 @@
                         <?php echo $row['descricao']?>
                     </div>
                 </td>
-                <td><?php echo $row['isbn']?></td>
                 <td><?php echo $row['categoria']?></td>
+                <td><?php echo $row['preco']?></td>
+                <td><?php echo $row['isbn']?></td>
                 <td>
                     <div class="thumb">
                         <?php echo $row['thumbnail']?>

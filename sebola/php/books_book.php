@@ -9,7 +9,7 @@
             if (isset($_GET["id"])) {
                 $id = $_GET["id"];
 
-                $sql = "SELECT id, titulo, autor, data_publicacao, descricao, isbn, categoria, thumbnail FROM livro WHERE id = $id";
+                $sql = "SELECT id, titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail FROM livro WHERE id = $id";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
