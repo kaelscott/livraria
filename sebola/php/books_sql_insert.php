@@ -4,10 +4,10 @@ include("./views/includes/connection.php");
 
 $apiKey = 'AIzaSyA30Tkewx10hPtRo_owpvVr3kLZOu0EGmI';
 // %20 - espaço
-$searchTerm = 'senhor%20dos%20aneis';
+$searchTerm = 'python';
 $url = "https://www.googleapis.com/books/v1/volumes?q={$searchTerm}&key={$apiKey}";
 
-// $authorName = 'Dan%20Brown';
+// $authorName = 'Vygotsky';
 // $url = "https://www.googleapis.com/books/v1/volumes?q=inauthor:{$authorName}&key={$apiKey}";
 
 $response = file_get_contents($url);
@@ -39,18 +39,18 @@ if ($data && array_key_exists('items', $data)) {
             $sql = "SELECT * FROM livro WHERE titulo = '$title' AND autor = '$author' AND data_publicacao = '$publishedDate'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
-                echo "O livro ${title} já existe. <br>";
+                echo "O livro $title já existe. <br>";
             } else {
                 $sql = "INSERT INTO livro (titulo, autor, data_publicacao, descricao, categoria, preco, isbn, thumbnail) VALUES ('$title', '$author', '$publishedDate', '$description', '$category', '$price', '$isbn','$thumbnail')";
 
                 if ($conn->query($sql) === TRUE) {
-                    echo "${title} inserido com sucesso. <br>";
+                    echo "$title inserido com sucesso. <br>";
                 } else {
                     echo "Erro ao inserir registro: " . $conn->error;
                 }
             }
         } else {
-            echo "O livro ${title} não tem todas as informações necessárias e não será salvo. <br>";
+            echo "O livro $title não tem todas as informações necessárias e não será salvo. <br>";
         }
     }
 } else {
