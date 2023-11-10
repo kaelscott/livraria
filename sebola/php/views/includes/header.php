@@ -15,9 +15,11 @@
 <header class="sticky-lg-top bg-body-tertiary">
     <nav class="navbar navbar-expand-sm pt-3">
         <div class="container d-flex flex-wrap justify-content-between">
-            <h1 class="navbar-brand">Site</h1>
-            <form class="w-50 mx-auto d-none d-sm-block" role="search">
-                <input type="search" class="form-control " placeholder="Search..." aria-label="Search">
+            <a href="home.php" class="navbar-brand">Site</a>
+            <form   class="w-50 mx-auto d-none d-sm-block" role="search"
+                    action="./search.php"
+                    method="POST">
+                <input type="search" name="termoPesquisa" class="form-control " placeholder="Search..." aria-label="Search">
             </form>
             <ul class="nav">
                 <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Login</a></li>
@@ -30,8 +32,10 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <form class="w-75 mx-auto d-block d-sm-none" role="search">
-                <input type="search" class="form-control " placeholder="Search..." aria-label="Search">
+            <form   class="w-75 mx-auto d-block d-sm-none" role="search"
+                    action="../../books_search.php"
+                    method="POST">
+                <input type="search" name="termoPesquisa" class="form-control" placeholder="Search..." aria-label="Search">
             </form>
             <div class="collapse navbar-collapse justify-content-center border-bottom" id="nav">
                 <ul class="navbar-nav">

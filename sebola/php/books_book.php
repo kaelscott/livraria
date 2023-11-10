@@ -21,9 +21,11 @@
                         echo "descricao:        {$row['descricao']}<br>";
                         echo "categoria:        {$row['categoria']}<br>";
                         echo "isbn:             {$row['isbn']}<br>";
-        ?>              <p>thumbnail:</p>       <img src="<?php echo $row['thumbnail'];?>"> <br> <?php
+                        echo "capa:  <img src='".$row['thumbnail']."' alt='".$row['titulo']."' <br>>";
                     }
                 }
+            } else {
+                echo "Nenhum registro encontrado";
             }
         ?>
 

@@ -25,10 +25,6 @@ include("./includes/header.php");
 </div>
 
 
-
-
-
-
 <?php
 
 function exibirLivrosPorCategoria($conn, $categoria) {
