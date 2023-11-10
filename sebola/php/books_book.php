@@ -21,7 +21,7 @@
                         echo "descricao:        {$row['descricao']}<br>";
                         echo "categoria:        {$row['categoria']}<br>";
                         echo "isbn:             {$row['isbn']}<br>";
-                        echo "capa:  <img src='".$row['thumbnail']."' alt='".$row['titulo']."' <br>>";
+                        echo "capa: <br>  <img src='".$row['thumbnail']."' alt='".$row['titulo']."' <br>";
                     }
                 }
             } else {

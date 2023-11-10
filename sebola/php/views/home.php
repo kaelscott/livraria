@@ -28,20 +28,22 @@ include("./includes/header.php");
 <?php
 
 function exibirLivrosPorCategoria($conn, $categoria) {
-    $sql = "SELECT id, thumbnail FROM livro WHERE categoria = '$categoria' OR categoria LIKE '$categoria%'";
-    $result = $conn->query($sql);
+  $sql = "SELECT id, thumbnail FROM livro WHERE categoria = '$categoria' OR categoria LIKE '$categoria%'";
+  $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-        echo '<div class="container text-center mb-5">';
-        echo '<div class="row flex-nowrap overflow-auto">';
-        while ($row = $result->fetch_assoc()) {
-            echo '<div class="col">';
-            echo '<img src="' . $row['thumbnail'] . '" style="margin-right: 5px;"><br>';
-            echo '</div>';
-        }
-        echo '</div>';
-        echo '</div>';
-    }
+  if ($result->num_rows > 0) {
+      echo '<div class="container text-center mb-5">';
+      echo '<div class="row flex-nowrap overflow-auto">';
+      while ($row = $result->fetch_assoc()) {
+          echo '<div class="col">';
+          echo '<a href="book.php?id=' . $row['id'] . '">';
+          echo '<img src="' . $row['thumbnail'] . '" style="margin-right: 5px;"><br>';
+          echo '</a>';
+          echo '</div>';
+      }
+      echo '</div>';
+      echo '</div>';
+  }
 }
 
 exibirLivrosPorCategoria($conn, 'Fiction');
