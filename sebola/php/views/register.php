@@ -7,6 +7,14 @@
         <p class="col-lg-10 fs-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus obcaecati quod inventore, quos placeat aspernatur.</p>
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
+      <?php
+          session_start();
+          if(isset($_SESSION["error"])) {
+              echo '<div class="alert alert-danger" role="alert">' . $_SESSION["error"] . '</div>';
+
+              unset($_SESSION["error"]);
+          }
+      ?>
       <h3> Create an Account </h3>
         <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" name="formRegister" method="POST" action="../register_php.php">
 

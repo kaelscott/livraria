@@ -22,6 +22,12 @@
         <?php
             include ("./views/includes/connection.php");
 
+            session_start();
+            if (!isset($_SESSION["isAdmin"])) {
+                header("Location: ./views/home.php");
+            }
+
+
             $sql = "SELECT id, titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail FROM livro";
             $result = $conn->query($sql);
         ?>

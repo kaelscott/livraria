@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 <body>
-
-
 
 <header class="sticky-lg-top bg-body-tertiary">
     <nav class="navbar navbar-expand-sm pt-3">
@@ -22,11 +19,18 @@
                 <input type="search" name="termoPesquisa" class="form-control " placeholder="Search..." aria-label="Search">
             </form>
             <ul class="nav">
+                <?php
+                session_start();
+                if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) {
+                    echo '<li class="nav-item"><a href="../books_list.php" class="nav-link link-body-emphasis px-2">Registros</a></li>';
+                }
+                ?>
                 <li class="nav-item"><a href="./login.php" class="nav-link link-body-emphasis px-2">Login</a></li>
                 <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Cart</a></li>
             </ul>
         </div>
     </nav>
+
     <nav class="navbar navbar-expand-sm ">
         <div class="container d-flex flex-wrap justify-content-between">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">

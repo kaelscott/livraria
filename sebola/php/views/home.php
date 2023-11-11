@@ -5,8 +5,8 @@ include("./includes/header.php");
 ?>
 
 
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark">
-    <div class="col-md-6 p-lg-5 mx-auto my-5 text-light">
+<div class="position-relative overflow-hidden p-3 p-md-5  text-center bg-dark">
+    <div class="col-md-6 p-lg-5 mx-auto my-5 text-light" >
       <h1 class="display-3 fw-bold">Lorem ipsum dolor sit.</h1>
       <h3 class="fw-normal mb-3 text-light-emphasis">Lorem ipsum dolor sit amet consectetur.</h3>
       <div class="d-flex gap-3 justify-content-center lead fw-normal text-white">
@@ -33,6 +33,7 @@ function exibirLivrosPorCategoria($conn, $categoria) {
 
   if ($result->num_rows > 0) {
       echo '<div class="container text-center mb-5">';
+      echo '<h1>oi</h1>';
       echo '<div class="row flex-nowrap overflow-auto">';
       while ($row = $result->fetch_assoc()) {
           echo '<div class="col">';
