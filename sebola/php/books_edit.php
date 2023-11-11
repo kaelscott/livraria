@@ -5,7 +5,7 @@
 <body>
 
     <?php
-        include("connection.php");
+        include ("./views/includes/connection.php");
 
         if (isset($_GET["id"])) {
             $id = $_GET["id"];

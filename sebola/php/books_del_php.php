@@ -1,5 +1,5 @@
 <?php
-include ("./includes/connection.php");
+include ("./views/includes/connection.php");
 
 $id = $_GET["id"];
 

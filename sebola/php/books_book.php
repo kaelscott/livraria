@@ -4,7 +4,7 @@
     </head>
     <body>
         <?php
-            include ("./includes/connection.php");
+            include ("./views/includes/connection.php");
 
             if (isset($_GET["id"])) {
                 $id = $_GET["id"];

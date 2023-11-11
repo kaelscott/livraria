@@ -20,7 +20,7 @@
     <body>
 
         <?php
-            include("connection.php");
+            include ("./views/includes/connection.php");
 
             $sql = "SELECT id, titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail FROM livro";
             $result = $conn->query($sql);

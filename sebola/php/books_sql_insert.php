@@ -1,6 +1,6 @@
 <?php
 
-include("./views/includes/connection.php");
+include ("./views/includes/connection.php");
 
 $apiKey = 'AIzaSyA30Tkewx10hPtRo_owpvVr3kLZOu0EGmI';
 // %20 - espaço

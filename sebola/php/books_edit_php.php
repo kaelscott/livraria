@@ -1,6 +1,6 @@
 <?php
 
-include ("./includes/connection.php");
+include ("./views/includes/connection.php");
 
 $id             = $_POST["txtId"];
 $title          = $_POST["txtTitle"];

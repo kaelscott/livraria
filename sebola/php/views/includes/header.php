@@ -22,7 +22,7 @@
                 <input type="search" name="termoPesquisa" class="form-control " placeholder="Search..." aria-label="Search">
             </form>
             <ul class="nav">
-                <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Login</a></li>
+                <li class="nav-item"><a href="./login.php" class="nav-link link-body-emphasis px-2">Login</a></li>
                 <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Cart</a></li>
             </ul>
         </div>
