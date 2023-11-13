@@ -16,7 +16,7 @@ if(empty($email) || empty($senha)) {
 $senha = password_hash($senha, PASSWORD_DEFAULT);
 
 // Use consultas preparadas para evitar injeção SQL
-$stmt = $conn->prepare("SELECT email FROM usuarios WHERE email = ?");
+$stmt = $conn->prepare("SELECT email FROM usuarios WHERE email = ?");  
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();

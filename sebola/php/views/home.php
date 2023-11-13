@@ -35,7 +35,7 @@ function exibirLivrosPorCategoria($conn, $categoria) {
       $row = $result->fetch_assoc();
 ?>
       <div class="container text-center mb-5">
-          <h1 style="text-align: left;"><?php echo $row['categoria']; ?></h1>
+          <h2 style="text-align: left;"><?php echo $row['categoria']; ?></h2>
           <div class="row flex-nowrap overflow-auto">
               <div class="col">
                   <a href="book.php?id=<?php echo $row['id']; ?>">
