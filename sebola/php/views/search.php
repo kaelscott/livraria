@@ -26,7 +26,7 @@ include ("./includes/connection.php");
         while($row = $result->fetch_assoc()):
             if($count % 5 == 0):
         ?>
-            <div class='row justify-content-center '>
+            <div class='row justify-content-center mb-4'>
         <?php endif; ?>
                 <div class='col-lg-2 col-md-4 col-sm-6 mt-5'>
                     <div class='card shadow-sm'>

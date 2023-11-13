@@ -22,6 +22,7 @@ if($result->num_rows > 0) {
             session_start();
             $_SESSION["id"] = $row["id"];
             $_SESSION["isAdmin"] = $row["isAdmin"]; // Defina a variável de sessão isAdmin
+            $_SESSION["loggedIn"] = true; // Adicione esta linha
             // Se o usuário marcar a opção "lembrar-me", armazene o ID do usuário em um cookie
             if($remember) {
                 setcookie("userid", $row["id"], time() + (86400 * 30), "/"); // 86400 = 1 dia
@@ -29,6 +30,7 @@ if($result->num_rows > 0) {
             header('Location: ./views/home.php');
             exit();
         }
+
     }
 }
 

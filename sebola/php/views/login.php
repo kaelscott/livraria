@@ -11,7 +11,6 @@ include ("./includes/connection.php");
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
       <?php
-          session_start();
           if(isset($_SESSION["error"])) {
               echo '<div class="alert alert-danger" role="alert">' . $_SESSION["error"] . '</div>';
 

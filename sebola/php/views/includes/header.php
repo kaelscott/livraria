@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <title>Document</title>
 </head>
@@ -19,15 +20,20 @@
                 <input type="search" name="termoPesquisa" class="form-control " placeholder="Search..." aria-label="Search">
             </form>
             <ul class="nav">
-                <?php
+            <?php
                 session_start();
                 if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) {
                     echo '<li class="nav-item"><a href="../books_list.php" class="nav-link link-body-emphasis px-2">Registros</a></li>';
                 }
+                if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) {
+                    echo '<li class="nav-item"><i class="bi bi-person-circle nav-link link-body-emphasis px-2"></i></li>';
+                } else {
+                    echo '<li class="nav-item"><a href="./login.php" class="nav-link link-body-emphasis px-2">Login</a></li>';
+                }
                 ?>
-                <li class="nav-item"><a href="./login.php" class="nav-link link-body-emphasis px-2">Login</a></li>
                 <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Cart</a></li>
             </ul>
+
         </div>
     </nav>
 
