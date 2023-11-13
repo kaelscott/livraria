@@ -23,7 +23,7 @@ include ("./includes/connection.php");
 
 
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="txtEmail">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="txtEmail"  autocomplete="off">
             <label for="floatingInput">Email address</label>
           </div>
 

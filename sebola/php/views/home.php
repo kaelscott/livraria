@@ -28,22 +28,34 @@ include("./includes/header.php");
 <?php
 
 function exibirLivrosPorCategoria($conn, $categoria) {
-  $sql = "SELECT id, thumbnail FROM livro WHERE categoria = '$categoria' OR categoria LIKE '$categoria%'";
+  $sql = "SELECT id, thumbnail, categoria FROM livro WHERE categoria = '$categoria' OR categoria LIKE '$categoria%'";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
-      echo '<div class="container text-center mb-5">';
-      echo '<h1>oi</h1>';
-      echo '<div class="row flex-nowrap overflow-auto">';
-      while ($row = $result->fetch_assoc()) {
-          echo '<div class="col">';
-          echo '<a href="book.php?id=' . $row['id'] . '">';
-          echo '<img src="' . $row['thumbnail'] . '" style="margin-right: 5px;"><br>';
-          echo '</a>';
-          echo '</div>';
-      }
-      echo '</div>';
-      echo '</div>';
+      $row = $result->fetch_assoc();
+?>
+      <div class="container text-center mb-5">
+          <h1 style="text-align: left;"><?php echo $row['categoria']; ?></h1>
+          <div class="row flex-nowrap overflow-auto">
+              <div class="col">
+                  <a href="book.php?id=<?php echo $row['id']; ?>">
+                      <img src="<?php echo $row['thumbnail']; ?>" style="margin-right: 5px;"><br>
+                  </a>
+              </div>
+              <?php
+                while ($row = $result->fetch_assoc()) {
+              ?>
+                  <div class="col">
+                      <a href="book.php?id=<?php echo $row['id']; ?>">
+                          <img src="<?php echo $row['thumbnail']; ?>" style="margin-right: 5px;"><br>
+                      </a>
+                  </div>
+              <?php
+                }
+              ?>
+          </div>
+      </div>
+<?php
   }
 }
 

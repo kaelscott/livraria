@@ -18,7 +18,7 @@
         <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" name="formRegister" method="POST" action="../register_php.php">
 
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="txtEmail">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="txtEmail"  autocomplete="off">
             <label for="floatingInput">Email address</label>
           </div>
 

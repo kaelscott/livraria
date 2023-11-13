@@ -9,9 +9,9 @@ include ("./includes/connection.php");
     }
 </style>
 
-<?php if (isset($_POST['termoPesquisa'])): ?>
+<?php if (isset($_GET['termoPesquisa'])): ?>
     <?php
-    $pesquisa = $_POST['termoPesquisa'];
+    $pesquisa = $_GET['termoPesquisa'];
     $sql = "SELECT * FROM livro WHERE titulo LIKE '%$pesquisa%' OR autor LIKE '%$pesquisa%'";
     $result = $conn->query($sql);
     $num_results = $result->num_rows;

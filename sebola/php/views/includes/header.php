@@ -16,7 +16,7 @@
             <a href="home.php" class="navbar-brand">Site</a>
             <form   class="w-50 mx-auto d-none d-sm-block" role="search"
                     action="./search.php"
-                    method="POST">
+                    method="GET">
                 <input type="search" name="termoPesquisa" class="form-control " placeholder="Search..." aria-label="Search">
             </form>
             <ul class="nav">

@@ -36,6 +36,7 @@ if($result->num_rows > 0){
         session_start();
         // Armazene os dados do usuário na sessão
         $_SESSION['email'] = $email;
+        $_SESSION["loggedIn"] = true;
         // Redirecione o usuário para a página inicial ou painel
         header('Location: ./views/home.php');
     } else {
