@@ -30,7 +30,7 @@ include ("./includes/connection.php");
         <?php endif; ?>
                 <div class='col-lg-2 col-md-4 col-sm-6 mt-5'>
                     <div class='card shadow-sm'>
-                        <a href="book.php?id=<?php echo $row['id']; ?>">
+                        <a href="book.php?id_livro=<?php echo $row['id_livro']; ?>">
                             <img class='bd-placeholder-img card-img-top' width='100%' height='250' src='<?php echo $row['thumbnail']; ?>' alt='<?php echo $row['titulo']; ?>'>
                         </a>
                         <div class='card-body'>

@@ -3,28 +3,34 @@ include ("./includes/connection.php");
 include ("./includes/header.php");
 
 
-    if (isset($_GET["id"])) {
-        $id = $_GET["id"];
+    if (isset($_GET["id_livro"])) {
+        $id_livro = $_GET["id_livro"];
 
-        $sql = "SELECT id, titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail FROM livro WHERE id = $id";
+        $sql = "SELECT id_livro, titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail FROM livro WHERE id_livro = $id_livro";
         $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo "<div class='row gx-1 gy-4'>";
-            echo "  <div class='col-md-6 py-3 '>";
-            echo "      <img src='".$row['thumbnail']."' style='width:250px'>";
-            echo "  </div>";
-            echo "  <div class='col-md-6 py-3'>";
-            echo "      titulo:           {$row['titulo']}<br>";
-            echo "      autor:            {$row['autor']}<br>";
-            echo "      data_publicacao:  {$row['data_publicacao']}<br>";
-            echo "      descricao:        {$row['descricao']}<br>";
-            echo "      categoria:        {$row['categoria']}<br>";
-            echo "  </div>";
-            echo "</div>";
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+        ?>
+                <div class='row gx-1 gy-4'>
+                    <div class='col-md-6 py-3'>
+                        <img src='<?php echo $row['thumbnail']; ?>' style='width:250px'>
+                    </div>
+                    <div class='col-md-6 py-3'>
+                        titulo:           <?php echo $row['titulo']; ?><br>
+                        autor:            <?php echo $row['autor']; ?><br>
+                        data_publicacao:  <?php echo $row['data_publicacao']; ?><br>
+                        descricao:        <?php echo $row['descricao']; ?><br>
+                        categoria:        <?php echo $row['categoria']; ?><br>
+                    </div>
+                </div>
+                <form action="" method="POST">
+                    <input type='checkbox' class='btn-check' name='options-outlined' id='danger-outlined' autocomplete='off'>
+                    <label class='btn btn-outline-danger' for='danger-outlined'>♡</label>
+                </form>
+        <?php
+            }
         }
-    }
 } else {
     echo "Nenhum registro encontrado";
 }

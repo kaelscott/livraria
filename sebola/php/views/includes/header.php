@@ -22,9 +22,7 @@
             <ul class="nav">
             <?php
                 session_start();
-                if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) {
-                    echo '<li class="nav-item"><a href="../books_list.php" class="nav-link link-body-emphasis px-2">Registros</a></li>';
-                }
+
                 if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) {
                     echo '
                         <li class="nav-item dropdown text-end">
@@ -34,13 +32,16 @@
                                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                                 </svg>
                             </a>
-                            <ul class="dropdown-menu text-small" style="">
+                            <ul class="dropdown-menu text-small" style="">'
+            ?> <?php                if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) {
+                                echo '<li><a class="dropdown-item" href="../books_list.php">Registros</a></li>';
+                            } ?>
                                 <li><a class="dropdown-item" href="#">Favoritos</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="../logout_php.php">Sign out</a></li>
                             </ul>
-                        </li>';
-                } else {
+                        </li>
+                <?php } else {
                     echo '<li class="nav-item"><a href="./login.php" class="nav-link link-body-emphasis px-2">Login</a></li>';
                 }
                 ?>
@@ -65,8 +66,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <form   class="w-75 mx-auto d-block d-sm-none" role="search"
-                    action="../../books_search.php"
-                    method="POST">
+                    action="./search.php"
+                    method="GET">
                 <input type="search" name="termoPesquisa" class="form-control" placeholder="Search..." aria-label="Search">
             </form>
             <div class="collapse navbar-collapse justify-content-center border-bottom" id="nav">

@@ -31,7 +31,7 @@
         <b>Capa:</b>
         <input type="text" name="txtThumb" required> <br>
 
-        <input type="hidden" name="txtId" value="<?php echo $id?>"><br><br>
+        <input type="hidden" name="txtIdBook" value="<?php echo $id_livro?>"><br><br>
         <input type="submit" value="Enviar">
     <form>
 

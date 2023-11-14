@@ -2,7 +2,7 @@
 
 include ("./views/includes/connection.php");
 
-$id             = $_POST["txtId"];
+$id_livro       = $_POST["txtIdBook"];
 $title          = $_POST["txtTitle"];
 $author         = $_POST["txtAuthor"];
 $pubDate        = $_POST["txtPubDate"];
@@ -14,12 +14,12 @@ $thumb          = $_POST["txtThumb"];
 
 $sql = "UPDATE livro
         SET titulo='$title', autor='$author', data_publicacao='$pubDate', descricao='$description', categoria='$category', preco='$price',isbn='$isbn', thumbnail='$thumb'
-        WHERE id='$id'";
+        WHERE id_livro='$id_livro'";
 
 $result = $conn->query($sql);
 
 if ($result === TRUE) {
-    header("Location: books_book.php?id=$id");
+    header("Location: books_book.php?id_livro=$id_livro");
 } else {
     echo "<script>alert('falha');</script>";
 }

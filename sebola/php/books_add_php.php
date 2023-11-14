@@ -1,7 +1,7 @@
 <?php
 include ("./views/includes/connection.php");
 
-$id             = $_POST["txtId"];
+$id_livro       = $_POST["txtIdBook"];
 $title          = $_POST["txtTitle"];
 $author         = $_POST["txtAuthor"];
 $pubDate        = $_POST["txtPubDate"];

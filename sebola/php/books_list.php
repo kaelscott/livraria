@@ -28,7 +28,7 @@
             }
 
 
-            $sql = "SELECT id, titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail FROM livro";
+            $sql = "SELECT id_livro, titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail FROM livro";
             $result = $conn->query($sql);
         ?>
 
@@ -56,8 +56,8 @@
             ?>
             <tr>
                 <td>
-                    <a href="books_book.php?id=<?php echo $row['id']?>">
-                        <?php echo $row['id']?>
+                    <a href="books_book.php?id_livro=<?php echo $row['id_livro']?>">
+                        <?php echo $row['id_livro']?>
                     </a>
                 </td>
                 <td><?php echo $row['titulo']?></td>
@@ -77,12 +77,12 @@
                     </div>
                 </td>
                 <td>
-                    <a href="books_edit.php?id=<?php echo $row['id']?>">
+                    <a href="books_edit.php?id_livro=<?php echo $row['id_livro']?>">
                         Editar
                     </a>
                 </td>
                 <td>
-                    <a href="#" onclick="remove(<?php echo $row['id']?>)">
+                    <a href="#" onclick="remove(<?php echo $row['id_livro']?>)">
                         Excluir
                     </a>
                 </td>
@@ -95,9 +95,9 @@
     </body>
 
     <script>
-        function remove(id) {
+        function remove(id_livro) {
             if (confirm("Tem certeza que quer deletar?")) {
-                location.href = `books_del_php.php?id=${id}`
+                location.href = `books_del_php.php?id_livro=${id_livro}`
             }
         }
     </script>
