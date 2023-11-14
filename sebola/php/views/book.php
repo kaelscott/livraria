@@ -13,15 +13,19 @@ include ("./includes/header.php");
             while ($row = $result->fetch_assoc()) {
         ?>
                 <div class='row gx-1 gy-4'>
-                    <div class='col-md-6 py-3'>
+                    <div class='col-md-5 gx-5'>
                         <img src='<?php echo $row['thumbnail']; ?>' style='width:250px'>
                     </div>
-                    <div class='col-md-6 py-3'>
-                        titulo:           <?php echo $row['titulo']; ?><br>
-                        autor:            <?php echo $row['autor']; ?><br>
-                        data_publicacao:  <?php echo $row['data_publicacao']; ?><br>
-                        descricao:        <?php echo $row['descricao']; ?><br>
-                        categoria:        <?php echo $row['categoria']; ?><br>
+                    <div class='col-md-5 py-3 gx-5'>
+                        <h1>  <?php echo $row['titulo']; ?> <br> </h1>
+                        <div class='d-flex align-items-center'>
+                            <h4>  <?php echo $row['autor']; ?> - </h4>
+                            <h6 class="px-2"><?php echo $row['data_publicacao']; ?></h6>
+                        </div>
+                        <h6><?php echo $row['categoria']; ?><br></h6>
+                        <br>
+                        <p> <?php echo $row['descricao']; ?><br> </p>
+
                     </div>
                 </div>
                 <form action="" method="POST">

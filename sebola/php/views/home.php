@@ -5,7 +5,7 @@ include("./includes/header.php");
 ?>
 
 
-<div class="position-relative overflow-hidden p-3 p-md-5 mb-5 text-center bg-dark">
+<div class="position-relative overflow-hidden p-3 p-md-1 mb-5 text-center bg-dark">
     <div class="col-md-6 p-lg-5 mx-auto my-5 text-light" >
       <h1 class="display-3 fw-bold">Lorem ipsum dolor sit.</h1>
       <h3 class="fw-normal mb-3 text-light-emphasis">Lorem ipsum dolor sit amet consectetur.</h3>

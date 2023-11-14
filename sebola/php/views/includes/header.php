@@ -13,7 +13,7 @@
 <header class="sticky-lg-top bg-body-tertiary">
     <nav class="navbar navbar-expand-sm pt-3">
         <div class="container d-flex flex-wrap justify-content-between">
-            <a href="home.php" class="navbar-brand">Site</a>
+            <h1 class="navbar-brand"><a href="home.php" class="navbar-brand">Sebo lá</a></h1>
             <form   class="w-50 mx-auto d-none d-sm-block" role="search"
                     action="./search.php"
                     method="GET">
@@ -72,11 +72,9 @@
             </form>
             <div class="collapse navbar-collapse justify-content-center border-bottom" id="nav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active" aria-current="page">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Features</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Pricing</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">FAQs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">About</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active" aria-current="page">..</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">..</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">..</a></li>
                 </ul>
             </div>
         </div>

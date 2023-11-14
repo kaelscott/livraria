@@ -4,10 +4,10 @@ include ("./views/includes/connection.php");
 
 $apiKey = 'AIzaSyA30Tkewx10hPtRo_owpvVr3kLZOu0EGmI';
 // %20 - espaço
-$searchTerm = 'python';
+$searchTerm = 'senhordosaneis';
 $url = "https://www.googleapis.com/books/v1/volumes?q={$searchTerm}&key={$apiKey}";
 
-// $authorName = 'Vygotsky';
+// $authorName = 'nietzsche';
 // $url = "https://www.googleapis.com/books/v1/volumes?q=inauthor:{$authorName}&key={$apiKey}";
 
 $response = file_get_contents($url);
