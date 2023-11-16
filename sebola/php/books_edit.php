@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <title>Sistema</title>
     </head>
 <body>
@@ -56,6 +57,14 @@
         <input type="hidden" name="txtId" value="<?php echo $id?>"><br><br>
         <input type="submit" value="Enviar">
     <form>
+
+    <div class="row mb-3">
+  <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
+  <div class="col-sm-5">
+    <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
+  </div>
+</div>
+
 
 </body>
 </html>
