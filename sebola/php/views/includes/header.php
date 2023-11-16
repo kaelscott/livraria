@@ -17,7 +17,7 @@
             <form   class="w-50 mx-auto d-none d-sm-block" role="search"
                     action="./search.php"
                     method="GET">
-                <input type="search" name="termoPesquisa" class="form-control " placeholder="Search..." aria-label="Search">
+                <input type="search" name="termoPesquisa" class="form-control " placeholder="Pesquise por livros ou autores" aria-label="Search">
             </form>
             <ul class="nav">
             <?php
@@ -38,7 +38,7 @@
                             } ?>
                                 <li><a class="dropdown-item" href="#">Favoritos</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="../logout_php.php">Sign out</a></li>
+                                <li><a class="dropdown-item" href="../logout_php.php">Sair</a></li>
                             </ul>
                         </li>
                 <?php } else {
@@ -72,9 +72,11 @@
             </form>
             <div class="collapse navbar-collapse justify-content-center border-bottom" id="nav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active" aria-current="page">..</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">..</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">..</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-4"> Categorias </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-4"> Lista de desejos </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-4"> Ajude uma livraria </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-4"> Crianças </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-4"> In English </a></li>
                 </ul>
             </div>
         </div>

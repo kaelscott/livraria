@@ -4,7 +4,7 @@ include ("./views/includes/connection.php");
 
 $apiKey = 'AIzaSyA30Tkewx10hPtRo_owpvVr3kLZOu0EGmI';
 // %20 - espaço
-$searchTerm = 'senhordosaneis';
+$searchTerm = 'diariodeumbanana';
 $url = "https://www.googleapis.com/books/v1/volumes?q={$searchTerm}&key={$apiKey}";
 
 // $authorName = 'nietzsche';
