@@ -10,7 +10,10 @@ if(isset($_SESSION['id_usuarios'])){
     exit();
 }
 
-$sql = "SELECT livro.id_livro, livro.titulo, livro.autor, livro.data_publicacao, livro.descricao, livro.categoria, livro.preco, livro.isbn, livro.thumbnail FROM livro INNER JOIN lista_desejo ON livro.id_livro = lista_desejo.id_livro WHERE lista_desejo.id_usuarios = $id_usuarios";
+$sql = "SELECT livro.id_livro, livro.titulo, livro.autor, livro.preco, livro.thumbnail
+        FROM livro
+        INNER JOIN lista_desejo ON livro.id_livro = lista_desejo.id_livro
+        WHERE lista_desejo.id_usuarios = $id_usuarios";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
