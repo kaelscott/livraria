@@ -8,14 +8,10 @@
             }
 
             .descricao {
-                height: 80px !important;
+                height: 120px !important;
                 overflow-y: auto;
             }
 
-            .thumb{
-                width: 100px !important;
-                overflow: scroll;
-            }
         </style>
 
     </head>
@@ -50,7 +46,7 @@
                     <th scope="col">Categoria</th>
                     <th scope="col">Preco</th>
                     <th scope="col">ISBN</th>
-                    <th scope="col">Capa <\link></th>
+                    <th scope="col">Capa</th>
                     <th scope="col" colspan=2>Ações</th>
                 </tr>
             </thead>
@@ -79,7 +75,7 @@
                     <td scope="row"><?php echo $row['isbn']?></td>
                     <td scope="row">
                         <div class="thumb">
-                            <?php echo $row['thumbnail']?>
+                            <img src="<?php echo $row['thumbnail']?>" width="90px">
                         </div>
                     </td>
                     <td>

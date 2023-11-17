@@ -36,7 +36,7 @@
             ?> <?php                if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) {
                                 echo '<li><a class="dropdown-item" href="../books_list.php">Registros</a></li>';
                             } ?>
-                                <li><a class="dropdown-item" href="#">Favoritos</a></li>
+                                <li><a class="dropdown-item" href="./favoritos.php">Favoritos</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="../logout_php.php">Sair</a></li>
                             </ul>

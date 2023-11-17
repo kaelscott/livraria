@@ -1,17 +1,18 @@
+<script type="module" src="../../favorite_button_toggle.js"></script>
+
 <?php
 include ("./includes/connection.php");
 include ("./includes/header.php");
 
+if (isset($_GET["id_livro"])) {
+    $id_livro = $_GET["id_livro"];
 
-    if (isset($_GET["id_livro"])) {
-        $id_livro = $_GET["id_livro"];
+    $sql = "SELECT id_livro, titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail FROM livro WHERE id_livro = $id_livro";
+    $result = $conn->query($sql);
 
-        $sql = "SELECT id_livro, titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail FROM livro WHERE id_livro = $id_livro";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-        ?>
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+?>
             <div class="container my-5">
                 <div class="row">
                     <div class="col-md-4 d-flex justify-content-end align-items-start">
@@ -26,23 +27,27 @@ include ("./includes/header.php");
                             </div>
                             <p class="fs-3"> R$<?php echo $row['preco'] ?> </p>
                             <div class="d-flex gap-2">
+
                                 <button class="btn btn-primary rounded-pill" type="button">Adicionar ao carrinho</button>
-                                <form action="" method="POST">
-                                    <input type='checkbox' class='btn-check' name='options-outlined' id='danger-outlined' autocomplete='off'>
-                                    <label class='btn btn-outline-danger rounded-pill' for='danger-outlined'>♡</label>
+                                <form action="../favorite_book.php" method="POST">
+                                    <input type='hidden' name='livro_favorito' value='<?php echo $id_livro; ?>'>
+                                    <button type="submit" class="favButton btn rounded-pill btn-outline-danger btn-danger" autocomplete="off">
+                                        Favoritar ♡
+                                    </button>
                                 </form>
+
                             </div>
                             <div class="my-3">
-                                <h3 >Descrição</h3>
+                                <h3>Descrição</h3>
                                 <p> <?php echo $row['descricao']; ?>  </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        <?php
-            }
+<?php
         }
+    }
 } else {
     echo "Nenhum registro encontrado";
 }
