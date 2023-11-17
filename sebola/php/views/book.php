@@ -1,4 +1,3 @@
-<script type="module" src="../../favorite_button_toggle.js"></script>
 
 <?php
 include ("./includes/connection.php");
@@ -31,9 +30,9 @@ if (isset($_GET["id_livro"])) {
                                 <button class="btn btn-primary rounded-pill" type="button">Adicionar ao carrinho</button>
                                 <form action="../favorite_book.php" method="POST">
                                     <input type='hidden' name='livro_favorito' value='<?php echo $id_livro; ?>'>
-                                    <button type="submit" class="favButton btn rounded-pill btn-outline-danger btn-danger" autocomplete="off">
-                                        Favoritar ♡
-                                    </button>
+                                    <!-- <button type="submit" class="btn rounded-pill" autocomplete="off">Favoritar ♡</button> -->
+                                    <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off" onChange="this.form.submit()">
+                                    <label class="btn btn-outline-danger rounded-pill" for="btn-check-outlined">♡</label>
                                 </form>
 
                             </div>

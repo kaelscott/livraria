@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <h1>Adcionar livro</h1>
+    <h1>Adicionar livro</h1>
     <form id="form1" name="form1" method="POST" action="books_add_php.php">
 
         <b>Titulo:</b>
@@ -24,6 +24,9 @@
 
         <b>Categoria:</b>
         <input type="text" name="txtCategory" required> <br>
+
+        <b>Preço:</b>
+        <input type="text" name="txtPrice" required> <br>
 
         <b>ISBN:</b>
         <input type="text" name="txtIsbn"> <br>

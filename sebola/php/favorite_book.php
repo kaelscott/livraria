@@ -1,3 +1,4 @@
+
 <?php
 session_start(); // Inicia a sessão
 include ("./views/includes/connection.php");

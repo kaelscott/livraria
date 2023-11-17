@@ -6,7 +6,7 @@
 <body>
 
     <?php
-        include ("./views/includes/connection.php");
+        include ("../views/includes/connection.php");
 
         if (isset($_GET["id_livro"])) {
             $id_livro = $_GET["id_livro"];
@@ -46,7 +46,7 @@
         <input type="text" name="txtCategory" value="<?php echo $category?>" required> <br>
 
         <b>Preço:</b>
-        <input type="text" name="txtPrice" value="<?php echo $price?>" required> <br>
+        <input type="number" name="txtPrice" value="<?php echo $price?>" required> <br>
 
         <b>ISBN:</b>
         <input type="text" name="txtIsbn" value="<?php echo $isbn?>"> <br>
@@ -54,16 +54,9 @@
         <b>Capa:</b>
         <input type="text" name="txtThumb" value="<?php echo $thumb?>" required> <br>
 
-        <input type="hidden" name="txtId" value="<?php echo $id?>"><br><br>
+        <input type="hidden" name="txtIdBook" value="<?php echo $id_livro?>"><br><br>
         <input type="submit" value="Enviar">
     <form>
-
-    <div class="row mb-3">
-  <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-  <div class="col-sm-5">
-    <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
-  </div>
-</div>
 
 
 </body>

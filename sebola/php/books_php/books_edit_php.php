@@ -1,6 +1,6 @@
 <?php
 
-include ("./views/includes/connection.php");
+include ("../views/includes/connection.php");
 
 $id_livro       = $_POST["txtIdBook"];
 $title          = $_POST["txtTitle"];

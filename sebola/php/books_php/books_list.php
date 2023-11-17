@@ -18,7 +18,7 @@
     <body>
 
         <?php
-            include ("./views/includes/connection.php");
+            include ("../views/includes/connection.php");
 
             session_start();
             if (!isset($_SESSION["isAdmin"])) {
@@ -30,11 +30,15 @@
             $result = $conn->query($sql);
         ?>
 
-        <div class="fw-bold fs-5"> Número de registros na tabela: <?php echo $result->num_rows?> </div>
+        <div class="d-flex justify-content-between align-items-center mx-4">
+            <div>
+                <div class="fw-bold fs-5"> Número de registros na tabela: <?php echo $result->num_rows?> </div>
+                <a href="books_add.php" class="btn btn-secondary">+ Adicionar Registro</a>
+            </div>
+            <a href="../views/home.php"><img src="../../image/sebola logo.png" alt="logo"></a>
+        </div>
 
-        <a href="books_add.php">+ Adicionar Registro</a>
-
-        <br><br>
+        <br>
         <table class="table table-hover table-striped table-bordered border-secondary">
             <thead>
                 <tr>

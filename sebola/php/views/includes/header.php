@@ -13,7 +13,7 @@
 <header class="sticky-lg-top bg-body-tertiary">
     <nav class="navbar navbar-expand-sm pt-3">
         <div class="container d-flex flex-wrap justify-content-between">
-            <h1 class="navbar-brand"><a href="home.php" class="navbar-brand">Sebo lá</a></h1>
+            <h1 class="navbar-brand"><a href="home.php" class="navbar-brand"><img src="../../image/sebola logo.png" alt="logo"></a></h1>
             <form   class="w-50 mx-auto d-none d-sm-block" role="search"
                     action="./search.php"
                     method="GET">
@@ -34,8 +34,8 @@
                             </a>
                             <ul class="dropdown-menu text-small" style="">'
             ?> <?php                if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) {
-                                echo '<li><a class="dropdown-item" href="../books_list.php">Registro livros</a></li>';
-                                echo '<li><a class="dropdown-item" href="../books_list.php">Registro usuarios</a></li>';
+                                echo '<li><a class="dropdown-item" href="../books_php/books_list.php">Registro livros</a></li>';
+                                echo '<li><a class="dropdown-item" href="../users_php/users_list.php">Registro usuarios</a></li>';
                             } ?>
                                 <li><a class="dropdown-item" href="./favoritos.php">Favoritos</a></li>
                                 <li><hr class="dropdown-divider"></li>
