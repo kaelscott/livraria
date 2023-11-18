@@ -10,7 +10,7 @@ include("./includes/header.php");
       <h1 class="display-3 fw-bold">Sebo lá</h1>
       <h3 class="fw-normal mb-3 text-light-emphasis">Plataforma que conecta você aos livros e às livrarias que você ama</h3>
       <div class="justify-content-center lead fw-normal text-white">
-        <a class="icon-link link-light link-underline-opacity-25 link-underline-opacity-75-hover pt-4" href="#">
+        <a class="icon-link link-light link-underline-opacity-25 link-underline-opacity-75-hover pt-4" href="./sobre.php">
           Sobre nós
         </a>
       </div>

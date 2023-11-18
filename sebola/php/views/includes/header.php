@@ -63,6 +63,18 @@
 
     <nav class="navbar navbar-expand-sm ">
         <div class="container d-flex flex-wrap justify-content-between">
+            <form   class="w-75 mx-auto d-block d-sm-none" role="search"
+                    action="./search.php"
+                    method="GET">
+                <input type="search" name="termoPesquisa" class="form-control" placeholder="Pesquise por livros ou autores" aria-label="Search">
+            </form>
+        </div>
+    </nav>
+
+
+
+    <!-- <nav class="navbar navbar-expand-sm ">
+        <div class="container d-flex flex-wrap justify-content-between">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -81,5 +93,5 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 </header>

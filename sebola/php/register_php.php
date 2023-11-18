@@ -1,5 +1,7 @@
 <?php include ("./views/includes/connection.php");
 
+session_start();
+
 $email = $_POST['txtEmail'];
 $senha = $_POST['txtPassword'];
 
