@@ -3,11 +3,11 @@
 include ("../views/includes/connection.php");
 
 $apiKey = 'AIzaSyA30Tkewx10hPtRo_owpvVr3kLZOu0EGmI';
-// %20 - espaço
-$searchTerm = 'diariodeumbanana';
+
+$searchTerm = 'Jogosvorazes';
 $url = "https://www.googleapis.com/books/v1/volumes?q={$searchTerm}&key={$apiKey}";
 
-// $authorName = 'nietzsche';
+// $authorName = 'Hegel';
 // $url = "https://www.googleapis.com/books/v1/volumes?q=inauthor:{$authorName}&key={$apiKey}";
 
 $response = file_get_contents($url);

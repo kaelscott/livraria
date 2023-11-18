@@ -11,7 +11,7 @@ if(isset($_SESSION['id_usuarios'])){
     $id_usuarios = $_SESSION['id_usuarios'];
 } else {
     // Trate o caso em que 'id_usuarios' não está definido na sessão
-    echo "id_usuarios não está definido na sessão.";
+    header("Location: ./views/login.php");
     exit();
 }
 

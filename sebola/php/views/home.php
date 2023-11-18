@@ -75,9 +75,10 @@ function exibirLivrosPorCategoria($conn, $categoria) {
 
 
 
-exibirLivrosPorCategoria($conn, 'Fiction');
-exibirLivrosPorCategoria($conn, 'Philosophy');
-exibirLivrosPorCategoria($conn, 'Computers');
+exibirLivrosPorCategoria($conn, 'Ficcao');
+exibirLivrosPorCategoria($conn, 'Filosofia');
+exibirLivrosPorCategoria($conn, 'Computadores');
+exibirLivrosPorCategoria($conn, 'Psicologia');
 
 include("./includes/footer.php");
 

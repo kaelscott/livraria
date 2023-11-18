@@ -6,17 +6,13 @@
         <?php
             include ("../views/includes/connection.php");
 
+
             if (isset($_GET["id_livro"])) {
                 $id_livro = $_GET["id_livro"];
 
-
-            }
-            if (isset($_GET["id_livro"])) {
-                $id_livro = $_GET["id_livro"];
                 if (!empty($id_livro)) {
-                    // Execute a consulta
                     $sql = "SELECT id_livro, titulo, autor, data_publicacao, descricao, categoria, preco, isbn, thumbnail FROM livro WHERE id_livro = $id_livro";
-                $result = $conn->query($sql);
+                    $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
