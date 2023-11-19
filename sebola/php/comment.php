@@ -2,7 +2,7 @@
 session_start();
 include ("./views/includes/connection.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {  // se o método de requisição for POST, ele adiciona o comentário no banco de dados
     $id_livro = $_POST['id_livro'];
     $comentario = $_POST['comentario'];
     $id_usuarios = $_SESSION['id_usuarios'];

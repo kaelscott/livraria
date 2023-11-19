@@ -30,7 +30,6 @@ if (isset($_GET["id_livro"])) {
                                 <button class="btn btn-primary rounded-pill" type="button">Adicionar ao carrinho</button>
                                 <form action="../favorite_book.php" method="POST">
                                     <input type='hidden' name='livro_favorito' value='<?php echo $id_livro; ?>'>
-                                    <!-- <button type="submit" class="btn rounded-pill" autocomplete="off">Favoritar ♡</button> -->
                                     <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off" onChange="this.form.submit()">
                                     <label class="btn btn-outline-danger rounded-pill" for="btn-check-outlined">♡</label>
                                 </form>
@@ -41,6 +40,7 @@ if (isset($_GET["id_livro"])) {
                                 <p> <?php echo $row['descricao']; ?>  </p>
                             </div>
 
+                                <!-- comentários -->
                                 <div class=" form-floating my-4">
                                     <form action="../comment.php" method="POST">
                                         <input type='hidden' name='id_livro' value='<?php echo $id_livro; ?>'>
@@ -49,7 +49,7 @@ if (isset($_GET["id_livro"])) {
                                     </form>
                                 </div>
 
-                                <?php
+                                <?php // exibe os comentários
                                 $sql_comentarios = "SELECT comentarios.comentario, comentarios.data_comentario, usuarios.email
                                                     FROM comentarios INNER JOIN usuarios
                                                     ON comentarios.id_usuarios = usuarios.id_usuarios
@@ -57,13 +57,13 @@ if (isset($_GET["id_livro"])) {
                                                     ORDER BY data_comentario DESC";
                                 $result_comentarios = $conn->query($sql_comentarios);
 
+                                // se houver comentários
                                 if ($result_comentarios->num_rows > 0) {
                                     while ($row_comentario = $result_comentarios->fetch_assoc()) {
                                         echo "<p><strong>" . $row_comentario['email'] . "</strong> (" . $row_comentario['data_comentario'] . "): " . $row_comentario['comentario'] . "</p>";
                                     }
                                 }
                                 ?>
-
 
                         </div>
                     </div>

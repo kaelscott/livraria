@@ -13,30 +13,34 @@
 <header class="sticky-lg-top bg-body-tertiary">
     <nav class="navbar navbar-expand-sm pt-3">
         <div class="container d-flex flex-wrap justify-content-between">
+
             <h1 class="navbar-brand"><a href="home.php" class="navbar-brand"><img src="../../image/sebola logo.png" alt="logo"></a></h1>
+
             <form   class="w-50 mx-auto d-none d-sm-block" role="search"
                     action="./search.php"
                     method="GET">
                 <input type="search" name="termoPesquisa" class="form-control " placeholder="Pesquise por livros ou autores" aria-label="Search">
             </form>
-            <ul class="nav">
-            <?php
-                session_start();
 
-                if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) {
-                    echo '
+            <ul class="nav">
+                <?php
+                session_start();
+                if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) {  // se o usuário estiver logado
+                ?>
                         <li class="nav-item dropdown text-end">
                             <a href="#" class="nav-link  d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z">
                                 </svg>
                             </a>
                             <ul class="dropdown-menu text-small" style="">'
-            ?> <?php                if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) {
-                                echo '<li><a class="dropdown-item" href="../books_php/books_list.php">Registro livros</a></li>';
-                                echo '<li><a class="dropdown-item" href="../users_php/users_list.php">Registro usuarios</a></li>';
-                            } ?>
+
+                                <?php if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) { ?>  <!-- se o usuário for admin -->
+                                    <li><a class="dropdown-item" href="../books_php/books_list.php">Registro livros</a></li>
+                                    <li><a class="dropdown-item" href="../users_php/users_list.php">Registro usuarios</a></li>
+                                <?php } ?>
+
                                 <li><a class="dropdown-item" href="./favoritos.php">Favoritos</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="../logout_php.php">Sair</a></li>

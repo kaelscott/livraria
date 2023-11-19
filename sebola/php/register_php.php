@@ -12,27 +12,26 @@ if(empty($email) || empty($senha)) {
     exit;
 }
 
-$senha = password_hash($senha, PASSWORD_DEFAULT);
+$senha = password_hash($senha, PASSWORD_DEFAULT);  // criptografa a senha, PASSWORD_DEFAULT faz com que o algoritmo de criptografia seja atualizado automaticamente
 
-// Use consultas preparadas para evitar injeção SQL
-$stmt = $conn->prepare("SELECT email FROM usuarios WHERE email = ?");
-$stmt->bind_param("s", $email);
+// evitar injeção SQL
+$stmt = $conn->prepare("SELECT email FROM usuarios WHERE email = ?");  // ? significa que o valor será passado depois
+$stmt->bind_param("s", $email);  // "s" significa que o valor é uma string
 $stmt->execute();
 $result = $stmt->get_result();
 
-if($result->num_rows > 0){
+if($result->num_rows > 0){  // se o email já estiver cadastrado
     $_SESSION["error"] = "Email já cadastrado.";
     header('Location: ./views/register.php');
     exit;
-} else {
+} else {  // se o email não estiver cadastrado, insere o usuário no banco de dados
     $stmt = $conn->prepare("INSERT INTO usuarios (email, senha) VALUES (?, ?)");
-    $stmt->bind_param("ss", $email, $senha);
+    $stmt->bind_param("ss", $email, $senha);  // "ss" significa que os valores são strings
     $stmt->execute();
 
     if($stmt->affected_rows > 0){
         echo "Usuário cadastrado com sucesso!";
 
-        // Redirecione o usuário para a página inicial ou painel
         header('Location: ./views/login.php');
     } else {
         echo "Houve um erro ao cadastrar o usuário";

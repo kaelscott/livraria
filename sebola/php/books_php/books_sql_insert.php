@@ -10,11 +10,12 @@ $url = "https://www.googleapis.com/books/v1/volumes?q={$searchTerm}&key={$apiKey
 // $authorName = 'Hegel';
 // $url = "https://www.googleapis.com/books/v1/volumes?q=inauthor:{$authorName}&key={$apiKey}";
 
-$response = file_get_contents($url);
-$data = json_decode($response, true);
+$response = file_get_contents($url);  // pega o json do google books
+$data = json_decode($response, true); // decodifica o json para um array
 
 if ($data && array_key_exists('items', $data)) {
     foreach ($data['items'] as $item) {
+        //real_escape_string para evitar sql injection
         $title = $conn->real_escape_string($item['volumeInfo']['title']);
         $author = array_key_exists('authors', $item['volumeInfo']) ? $conn->real_escape_string($item['volumeInfo']['authors'][0]) : null;
         $publishedDate = isset($item['volumeInfo']['publishedDate']) ? $conn->real_escape_string($item['volumeInfo']['publishedDate']) : null;
@@ -24,7 +25,7 @@ if ($data && array_key_exists('items', $data)) {
         $isbn = isset($item['volumeInfo']['industryIdentifiers'][1]['identifier']) ? $item['volumeInfo']['industryIdentifiers'][1]['identifier'] : null;
         $thumbnail = isset($item['volumeInfo']['imageLinks']['thumbnail']) ? $conn->real_escape_string($item['volumeInfo']['imageLinks']['thumbnail']) : null;
 
-        if (
+        if (  // verifica se o livro tem todas as informações necessárias
             isset($item['volumeInfo']['title']) &&
             isset($item['volumeInfo']['authors'][0]) &&
             isset($item['volumeInfo']['publishedDate']) &&
@@ -33,9 +34,10 @@ if ($data && array_key_exists('items', $data)) {
             isset($item['saleInfo']['listPrice']['amount']) &&
             isset($item['volumeInfo']['industryIdentifiers'][1]['identifier']) &&
             isset($item['volumeInfo']['imageLinks']['thumbnail'])
-        ) {
+        ) { // verifica se o livro já existe no banco de dados
             $thumbnail = $conn->real_escape_string($item['volumeInfo']['imageLinks']['thumbnail']);
             $category = $conn->real_escape_string($item['volumeInfo']['categories'][0]);
+            
             $sql = "SELECT * FROM livro WHERE titulo = '$title' AND autor = '$author' AND data_publicacao = '$publishedDate'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {

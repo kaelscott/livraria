@@ -9,7 +9,7 @@ include ("./includes/connection.php");
     }
 </style>
 
-<?php if (isset($_GET['termoPesquisa'])): ?>
+<?php if (isset($_GET['termoPesquisa'])){ ?>
     <?php
     $pesquisa = $_GET['termoPesquisa'];
     $sql = "SELECT * FROM livro WHERE titulo LIKE '%$pesquisa%' OR autor LIKE '%$pesquisa%'";
@@ -20,14 +20,14 @@ include ("./includes/connection.php");
     <div class='container'>
     <h6><?php echo $num_results; ?> resultados para "<?php echo $pesquisa;?>"</h6>
 
-    <?php if ($num_results > 0): ?>
+    <?php if ($num_results > 0){ ?>
         <?php
         $count = 0;
-        while($row = $result->fetch_assoc()):
-            if($count % 5 == 0):
+        while($row = $result->fetch_assoc()){
+            if($count % 5 == 0){
         ?>
             <div class='row justify-content-center mb-4'>
-        <?php endif; ?>
+        <?php } ?>
                 <div class='col-lg-2 col-md-4 col-sm-6 mt-5'>
                     <div class='card shadow-sm'>
                         <a href="book.php?id_livro=<?php echo $row['id_livro']; ?>">
@@ -50,16 +50,16 @@ include ("./includes/connection.php");
                 </div>
         <?php
         $count++;
-        endwhile;
+            }
         ?>
         </div>
-    <?php else: ?>
+    <?php } else { ?>
         Nenhum resultado encontrado
-    <?php endif; ?>
+    <?php } ?>
     </div>
 
 <?php
 $conn->close();
-endif;
+    }
 ?>
 

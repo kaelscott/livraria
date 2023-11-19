@@ -2,14 +2,15 @@
 include ("./includes/connection.php");
 include ("./includes/header.php");
 
-if(isset($_SESSION['id_usuarios'])){
+
+if(isset($_SESSION['id_usuarios'])){  // se o usuário estiver logado pega o id dele
     $id_usuarios = $_SESSION['id_usuarios'];
 } else {
-    // Trate o caso em que 'id_usuarios' não está definido na sessão
     echo "id_usuarios não está definido na sessão.";
     exit();
 }
 
+// pega os livros favoritados pelo usuário
 $sql = "SELECT livro.id_livro, livro.titulo, livro.autor, livro.preco, livro.thumbnail
         FROM livro
         INNER JOIN lista_desejo ON livro.id_livro = lista_desejo.id_livro
@@ -19,7 +20,7 @@ $num_results = $result->num_rows;
 ?>
 
 <div class='container'>
-    <?php
+    <?php // exibe o número de livros favoritados
     if ($num_results === 1) {
         echo "<p class='fw-medium fs-5'>  $num_results  livro favoritado</p>";
     } else {
@@ -29,7 +30,7 @@ $num_results = $result->num_rows;
 
     <?php if ($num_results > 0) { ?>
         <?php
-        $count = 0;
+        $count = 0;  // contador para exibir 5 livros por linha
         while($row = $result->fetch_assoc()) {
             if($count % 5 == 0){
         ?>

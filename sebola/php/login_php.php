@@ -2,31 +2,24 @@
 
 $email = $_POST["txtEmail"];
 $password = $_POST["txtPassword"];
-$remember = isset($_POST["chkRemember"]) ? $_POST["chkRemember"] : '';
 
-// Prepare a consulta SQL
-$stmt = $conn->prepare("SELECT id_usuarios, senha, isAdmin FROM usuarios WHERE email = ?");
-$stmt->bind_param("s", $email);
+// statement que previne SQL injection
+$stmt = $conn->prepare("SELECT id_usuarios, senha, isAdmin FROM usuarios WHERE email = ?");  // ? significa que o valor será passado depois
+$stmt->bind_param("s", $email);  // "s" significa que o valor é uma string
 
-// Execute a consulta
-$stmt->execute();
-
-// Obtenha o resultado
-$result = $stmt->get_result();
+$stmt->execute();  // executa a query
+$result = $stmt->get_result();  // pega o resultado da query
 
 $error = "Email ou senha incorretos";
 
-if($result->num_rows > 0) {
+if($result->num_rows > 0) {  // se o email existir no banco de dados
     while($row = $result->fetch_assoc()) {
-        if(password_verify($password, $row["senha"])) {
+        if(password_verify($password, $row["senha"])) {  // se a senha estiver correta
             session_start();
             $_SESSION["id_usuarios"] = $row["id_usuarios"];
-            $_SESSION["isAdmin"] = $row["isAdmin"]; // Defina a variável de sessão isAdmin
+            $_SESSION["isAdmin"] = $row["isAdmin"];
             $_SESSION["loggedIn"] = true;
-            // Se o usuário marcar a opção "lembrar-me", armazene o ID do usuário em um cookie
-            if($remember) {
-                setcookie("id_usuarios", $row["id_usuarios"], time() + (86400 * 30), "/"); // 86400 = 1 dia
-            }
+
             header('Location: ./views/home.php');
             exit();
         }

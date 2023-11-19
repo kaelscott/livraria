@@ -27,7 +27,7 @@
 
 
             $sql = "SELECT id_livro, titulo, autor, data_publicacao, descricao,categoria, preco, isbn, thumbnail FROM livro";
-            $result = $conn->query($sql);
+            $result = $conn->query($sql);  
         ?>
 
         <div class="d-flex justify-content-between align-items-center mx-4">

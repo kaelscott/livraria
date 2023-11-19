@@ -1,6 +1,12 @@
 create database sebolaDB;
 use sebolaDB;
 
+-- Para criar livros basta ir no arquivo: books_sql_insert.php
+-- trocar o $searchTerm por um titulo de livro e recarregar a pagina.
+
+-- Pelo fato de exitir um hash ao se registrar não é possivel adicionar contas
+-- direto pelo MySQL, tera que ser feito diretamente pelo site
+
 -- ---------------------LIVROS--------------------------------------
 CREATE TABLE livro(
 	id_livro int primary key auto_increment,
