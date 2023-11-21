@@ -26,6 +26,7 @@
                 <?php
                 session_start();
                 if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) {  // se o usuário estiver logado
+                    $user = $_SESSION['email'];
                 ?>
                         <li class="nav-item dropdown text-end">
                             <a href="#" class="nav-link  d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,7 +35,7 @@
                                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z">
                                 </svg>
                             </a>
-                            <ul class="dropdown-menu text-small" style="">'
+                            <ul class="dropdown-menu text-small">
 
                                 <?php if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) { ?>  <!-- se o usuário for admin -->
                                     <li><a class="dropdown-item" href="../books_php/books_list.php">Registro livros</a></li>
@@ -43,7 +44,7 @@
 
                                 <li><a class="dropdown-item" href="./favoritos.php">Favoritos</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="../logout_php.php">Sair</a></li>
+                                <li><a class="dropdown-item" href="../logout_php.php">Sair <span class="fw-light">(<?php echo $user;?>)</span> </a></li>
                             </ul>
                         </li>
                 <?php } else {

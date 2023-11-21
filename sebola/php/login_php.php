@@ -4,7 +4,7 @@ $email = $_POST["txtEmail"];
 $password = $_POST["txtPassword"];
 
 // statement que previne SQL injection
-$stmt = $conn->prepare("SELECT id_usuarios, senha, isAdmin FROM usuarios WHERE email = ?");  // ? significa que o valor será passado depois
+$stmt = $conn->prepare("SELECT email, id_usuarios, senha, isAdmin FROM usuarios WHERE email = ?");  // ? significa que o valor será passado depois
 $stmt->bind_param("s", $email);  // "s" significa que o valor é uma string
 
 $stmt->execute();  // executa a query
@@ -16,6 +16,7 @@ if($result->num_rows > 0) {  // se o email existir no banco de dados
     while($row = $result->fetch_assoc()) {
         if(password_verify($password, $row["senha"])) {  // se a senha estiver correta
             session_start();
+            $_SESSION["email"] = $row["email"];
             $_SESSION["id_usuarios"] = $row["id_usuarios"];
             $_SESSION["isAdmin"] = $row["isAdmin"];
             $_SESSION["loggedIn"] = true;
@@ -23,10 +24,8 @@ if($result->num_rows > 0) {  // se o email existir no banco de dados
             header('Location: ./views/home.php');
             exit();
         }
-
     }
 }
-
 session_start();
 $_SESSION["error"] = $error;
 header('Location: ./views/login.php');
