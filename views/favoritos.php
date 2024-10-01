@@ -1,12 +1,12 @@
 <?php
-include ("./includes/connection.php");
-include ("./includes/header.php");
+include("./includes/connection.php");
+include("./includes/header.php");
 
 
-if(isset($_SESSION['id_usuarios'])){  // se o usuário estiver logado pega o id dele
-    $id_usuarios = $_SESSION['id_usuarios'];
+if (isset($_SESSION['id_usuario'])) {  // se o usuário estiver logado pega o id dele
+    $id_usuario = $_SESSION['id_usuario'];
 } else {
-    echo "id_usuarios não está definido na sessão.";
+    echo "id_usuario não está definido na sessão.";
     exit();
 }
 
@@ -14,7 +14,7 @@ if(isset($_SESSION['id_usuarios'])){  // se o usuário estiver logado pega o id 
 $sql = "SELECT livro.id_livro, livro.titulo, livro.autor, livro.preco, livro.thumbnail
         FROM livro
         INNER JOIN lista_desejo ON livro.id_livro = lista_desejo.id_livro
-        WHERE lista_desejo.id_usuarios = $id_usuarios";
+        WHERE lista_desejo.id_usuario = $id_usuario";
 $result = $conn->query($sql);
 $num_results = $result->num_rows;
 ?>
@@ -31,11 +31,11 @@ $num_results = $result->num_rows;
     <?php if ($num_results > 0) { ?>
         <?php
         $count = 0;  // contador para exibir 5 livros por linha
-        while($row = $result->fetch_assoc()) {
-            if($count % 5 == 0){
+        while ($row = $result->fetch_assoc()) {
+            if ($count % 5 == 0) {
         ?>
-            <div class='row justify-content-center mb-4'>
-        <?php } ?>
+                <div class='row justify-content-center mb-4'>
+                <?php } ?>
                 <div class='col-lg-2 col-md-4 col-sm-6 mt-5'>
                     <div class='card shadow-sm'>
                         <a href="book.php?id_livro=<?php echo $row['id_livro']; ?>">
@@ -56,14 +56,14 @@ $num_results = $result->num_rows;
                         </div>
                     </div>
                 </div>
-        <?php
-        $count++;
-            }
-        ?>
-        </div>
-    <?php } else { ?>
-        <p class="fw-medium fs-5">Nenhum livro favoritado :(</p>
-    <?php } ?>
+            <?php
+            $count++;
+        }
+            ?>
+                </div>
+            <?php } else { ?>
+                <p class="fw-medium fs-5">Nenhum livro favoritado :(</p>
+            <?php } ?>
 </div>
 
 
@@ -76,4 +76,3 @@ $num_results = $result->num_rows;
      <div class="container">
          <p class="fw-medium fs-5">Nenhum livro favoritado :(</p>
      </div> -->
-

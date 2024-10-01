@@ -1,7 +1,6 @@
-
 <?php
-include ("./includes/connection.php");
-include ("./includes/header.php");
+include("./includes/connection.php");
+include("./includes/header.php");
 
 if (isset($_GET["id_livro"])) {
     $id_livro = $_GET["id_livro"];
@@ -37,33 +36,33 @@ if (isset($_GET["id_livro"])) {
 
                             <div class="my-3">
                                 <h3>Descrição</h3>
-                                <p> <?php echo $row['descricao']; ?>  </p>
+                                <p> <?php echo $row['descricao']; ?> </p>
                             </div>
 
-                                <!-- comentários -->
-                                <div class=" form-floating my-4">
-                                    <form action="../comment.php" method="POST">
-                                        <input type='hidden' name='id_livro' value='<?php echo $id_livro; ?>'>
-                                        <textarea class="form-control" name="comentario" placeholder="Adicione um comentário..."></textarea>
-                                        <button class="btn btn-outline-primary mt-2" type="submit" id="button-addon2">Enviar</button>
-                                    </form>
-                                </div>
+                            <!-- comentários -->
+                            <div class=" form-floating my-4">
+                                <form action="../comment.php" method="POST">
+                                    <input type='hidden' name='id_livro' value='<?php echo $id_livro; ?>'>
+                                    <textarea class="form-control" name="comentario" placeholder="Adicione um comentário..."></textarea>
+                                    <button class="btn btn-outline-primary mt-2" type="submit" id="button-addon2">Enviar</button>
+                                </form>
+                            </div>
 
-                                <?php // exibe os comentários
-                                $sql_comentarios = "SELECT comentarios.comentario, comentarios.data_comentario, usuarios.email
+                            <?php // exibe os comentários
+                            $sql_comentarios = "SELECT comentarios.comentario, comentarios.data_comentario, usuarios.email
                                                     FROM comentarios INNER JOIN usuarios
-                                                    ON comentarios.id_usuarios = usuarios.id_usuarios
+                                                    ON comentarios.id_usuario = usuarios.id_usuario
                                                     WHERE id_livro = '$id_livro'
                                                     ORDER BY data_comentario DESC";
-                                $result_comentarios = $conn->query($sql_comentarios);
+                            $result_comentarios = $conn->query($sql_comentarios);
 
-                                // se houver comentários
-                                if ($result_comentarios->num_rows > 0) {
-                                    while ($row_comentario = $result_comentarios->fetch_assoc()) {
-                                        echo "<p><strong>" . $row_comentario['email'] . "</strong> (" . $row_comentario['data_comentario'] . "): " . $row_comentario['comentario'] . "</p>";
-                                    }
+                            // se houver comentários
+                            if ($result_comentarios->num_rows > 0) {
+                                while ($row_comentario = $result_comentarios->fetch_assoc()) {
+                                    echo "<p><strong>" . $row_comentario['email'] . "</strong> (" . $row_comentario['data_comentario'] . "): " . $row_comentario['comentario'] . "</p>";
                                 }
-                                ?>
+                            }
+                            ?>
 
                         </div>
                     </div>
@@ -77,4 +76,3 @@ if (isset($_GET["id_livro"])) {
 }
 
 ?>
-

@@ -1,5 +1,6 @@
-create database sebolaDB;
-use sebolaDB;
+DROP DATABASE IF EXISTS sebolaDB;
+CREATE DATABASE sebolaDB;
+USE sebolaDB;
 
 -- Para criar livros basta ir no arquivo: books_sql_insert.php
 -- trocar o $searchTerm por um titulo de livro e recarregar a pagina.
@@ -44,23 +45,23 @@ desc livro;
 -- ------------------USUARIOS-----------------------------------
 
 CREATE TABLE usuarios (
-    id_usuarios INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(50) NOT NULL,
     senha VARCHAR(255) NOT NULL,
     isAdmin boolean default false
 );
 desc usuarios;
 select * from usuarios;
-UPDATE usuarios SET isAdmin = TRUE WHERE id_usuarios = 1;
+UPDATE usuarios SET isAdmin = TRUE WHERE id_usuario = 1;
 
 
 -- -------------------LISTA DE DESEJOS----------------------------------------
 
 CREATE TABLE lista_desejo (
-    id_usuarios INT,
+    id_usuario INT,
     id_livro INT,
-    PRIMARY KEY(id_usuarios, id_livro),
-    FOREIGN KEY (id_usuarios) REFERENCES usuarios(id_usuarios),
+    PRIMARY KEY(id_usuario, id_livro),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
     FOREIGN KEY (id_livro) REFERENCES livro(id_livro)
 );
 
@@ -70,12 +71,12 @@ select * from lista_desejo;
 
 CREATE TABLE comentarios (
     id_comentario INT NOT NULL AUTO_INCREMENT,
-    id_usuarios INT NOT NULL,
+    id_usuario INT NOT NULL,
     id_livro INT NOT NULL,
     comentario TEXT,
     data_comentario TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_comentario),
-    FOREIGN KEY (id_usuarios) REFERENCES usuarios(id_usuarios),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
     FOREIGN KEY (id_livro) REFERENCES livro(id_livro)
 );
 

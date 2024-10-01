@@ -1,11 +1,11 @@
 <?php
-include ("../views/includes/connection.php");
+include("../views/includes/connection.php");
 
-$id_usuarios = $_GET["id_usuarios"];
+$id_usuario = $_GET["id_usuario"];
 
 mysqli_query($conn, "SET foreign_key_checks = 0");
 
-$sql = "DELETE FROM usuarios WHERE id_usuarios='$id_usuarios'";
+$sql = "DELETE FROM usuarios WHERE id_usuario='$id_usuario'";
 $result = $conn->query($sql);
 
 if ($result === TRUE) {
@@ -13,11 +13,11 @@ if ($result === TRUE) {
 } else {
 ?>
 
-<script>
-    alert("falha");
-</script>
+    <script>
+        alert("falha");
+    </script>
 
 <?php
-    }
+}
 mysqli_query($conn, "SET foreign_key_checks = 1");
 ?>

@@ -1,21 +1,18 @@
 <?php
 
-include ("../views/includes/connection.php");
+include("../views/includes/connection.php");
 
-$id_usuarios    = $_POST["txtIdUser"];
+$id_usuario    = $_POST["txtIdUser"];
 $isAdmin        = $_POST["txtAdmin"];
 
 $sql = "UPDATE usuarios
         SET isAdmin = '$isAdmin'
-        WHERE id_usuarios = '$id_usuarios'";
+        WHERE id_usuario = '$id_usuario'";
 
 $result = $conn->query($sql);
 
 if ($result === TRUE) {
-    header("Location: users_user.php?id_usuarios=$id_usuarios");
+    header("Location: users_user.php?id_usuario=$id_usuario");
 } else {
     echo "<script>alert('falha');</script>";
 }
-
-?>
-
