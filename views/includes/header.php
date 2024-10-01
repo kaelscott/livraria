@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-sm pt-3">
         <div class="container d-flex flex-wrap justify-content-between">
 
-            <h1 class="navbar-brand"><a href="home.php" class="navbar-brand"><img src="../../image/sebola logo.png" alt="logo"></a></h1>
+            <h1 class="navbar-brand"><a href="home.php" class="navbar-brand"><img src="../image/sebola logo.png" alt="logo"></a></h1>
 
             <form   class="w-50 mx-auto d-none d-sm-block" role="search"
                     action="./search.php"
@@ -78,7 +78,7 @@
 
 
 
-    <!-- <nav class="navbar navbar-expand-sm ">
+    <nav class="navbar navbar-expand-sm ">
         <div class="container d-flex flex-wrap justify-content-between">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -98,5 +98,5 @@
                 </ul>
             </div>
         </div>
-    </nav> -->
+    </nav>
 </header>
